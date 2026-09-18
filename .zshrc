@@ -20,6 +20,12 @@ setopt HIST_VERIFY
 # disable less history
 export LESSHISTSIZE=0
 
+# my fucking keys
+bindkey '\e[H'   beginning-of-line  # POS1
+bindkey '\e[4~'  end-of-line        # ENDE
+bindkey '\e[F'   end-of-line        # ENDE
+bindkey '\e[3~'  delete-char        # ENTF
+
 # completion
 zstyle :compinstall filename '/home/kirby/.zshrc'
 autoload -Uz compinit && compinit
@@ -40,12 +46,9 @@ export GDK_BACKEND=wayland
 # cargo
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-# tmux autostart
-tmux new-session
-
 # $PS1
 PROMPT='┌─[%n@%m]-[%~]
-└──╼[%#]> '
+└──╼[$]> '
 
 # $PATH
 typeset -U path
@@ -58,6 +61,9 @@ export PATH
 
 # Encoding
 export LC_ALL=de_DE.UTF-8
+
+# term
+export TERM="xterm-256color"
 
 #
 # Default Applications
@@ -75,8 +81,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # lunix sudo
 alias sudo="doas"
 
+# SSH
+#alias ssh="TERM=tmux-256color ssh"
 # ssh-agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock" # ssh-agent
 
 # push key to remote SSHD
 alias ssh-push-id="ssh-copy-id -i ~/.ssh/id_ed25519"
