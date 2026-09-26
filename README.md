@@ -29,6 +29,24 @@
 * `vm create `
 
 
+## NBD: Network Block Device
+* `qemu-nbd -f raw -b 0.0.0.0 -p 10809 -t -e 0 --fork /dev/vda`
+* `gnbd connect -p  10809 185.213.240.247`
+
+
+## ZVol Swap
+```
+zfs create -V 8146681856 -b 4k \
+  -o org.freebsd:swap=on \
+  -o primarycache=metadata \
+  -o sync=disabled \
+  -o logbias=throughput \
+  -o checksum=off \
+  -o compression=off \
+  -o refreservation=auto \
+  zlab/swap
+ ```
+
 
 ```conf
 # lnxlab@bsdlab

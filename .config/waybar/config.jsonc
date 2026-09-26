@@ -1,0 +1,144 @@
+[{
+    // @BEGIN TOP BAR
+    "reload_style_on_change": true,
+    "name": "top",
+    "layer": "top",
+    "position": "top",
+
+    // Modules
+    "modules-left": [
+      "hyprland/workspaces",
+    ],
+    // tray?
+    "modules-center": [
+	  "hyprland/window",
+    ],
+    "modules-right": [
+	  "pulseaudio",
+      "clock",
+    ],
+
+    /*
+    // Modules
+    */
+
+    "hyprland/workspaces": {
+      "active-only": false,
+      "all-outputs": true,
+      "format": "{id}",
+      "persistent-workspaces": {
+        "*": 5
+      },
+      "disable-scroll": true,
+    },
+
+    "clock": {
+      "interval": 1,
+      "format": "{:%d.%m.%y %H:%M:%S}", 
+    },
+
+    "pulseaudio": {
+      "format": "vol: {volume}%",
+      "scroll-step": 1,
+      "on-click": "pavucontrol"
+    },
+    // @END TOP BAR
+  },{
+   // @BEGIN BOTTOM BAR
+    "reload_style_on_change": true,
+    "name": "bottom",
+    "layer": "top",
+    "position": "bottom",
+
+    // Modules
+    "modules-left": [
+      "wlr/taskbar",
+    ],
+    "modules-center": ["tray"],
+    "modules-right": [
+      "custom/mem",
+      "custom/mem-swap",
+      "custom/cpu-percent",
+      "custom/cpu-top-proc",
+      "custom/gpu-percent",
+      "custom/net-gateway",
+      "custom/net-lan-ip",
+      "custom/net-pub-ip.sh",
+      "custom/net-rxtx",
+    ],
+    // 
+
+    /*
+    // Modules
+    */
+
+    "wlr/taskbar": {
+        	"format": "{icon} {name}",
+        	"tooltip": true,
+        	"tooltip-format": "{title}",
+        	"on-click": "activate",
+        	"on-click-middle": "close",
+        "active-first": true,
+    },
+
+    "tray": {
+	  "icon-size": 21,
+	  "spacing": 10
+    },
+
+    "custom/mem": {
+      "exec": "~/.config/waybar/mem.sh",
+      "format": "MEM: {text}",
+      "interval": 1,
+    },
+
+    "custom/mem-swap": {
+      "exec": "~/.config/waybar/mem-swap.sh",
+      "format": "SWAP: {text}",
+      "interval": 1,
+    },
+
+    "custom/cpu-percent": {
+      "exec": "~/.config/waybar/cpu-percent.sh",
+      "format": "CPU: {text}",
+      "interval": 5,
+    },
+
+    "custom/cpu-top-proc": {
+      "exec": "~/.config/waybar/cpu-top-proc.sh",
+      "format": "Top-Process:{text}",
+      "interval": 5,
+    },
+
+    "custom/gpu-percent": {
+      "exec": "~/.config/waybar/gpu-percent.sh",
+      "format": "GPU: {text}",
+      "interval": 5,
+    },
+
+    "custom/net-gateway": {
+      "exec": "~/.config/waybar/net-gateway.sh",
+      "format": "{text}",
+      "interval": 5,
+    },
+    
+    "custom/net-lan-ip": {
+      "exec": "~/.config/waybar/net-lan-ip.sh",
+      "format": "Local-IP: {text}",
+      "interval": 5,
+    },
+
+    "custom/net-pub-ip.sh": {
+      "exec": "~/.config/waybar/net-pub-ip.sh",
+      "format": "Public-IP: {text}",
+      "interval": 30,
+    },
+
+    "custom/net-rxtx": {
+      "exec": "~/.config/waybar/net-rxtx.sh",
+      "format": "rx tx? {text}",
+      "interval": 5,
+    },
+
+    // @END BOTTOM BAR
+}]

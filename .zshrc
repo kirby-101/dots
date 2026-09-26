@@ -2,7 +2,7 @@
 
 # ZSH Options
 setopt autocd extendedglob nomatch notify
-unsetopt beep # hurensohn gepiepe
+unsetopt beep automenu MENU_COMPLETE # hurensohn sachen
 bindkey -e
 
 # ZSH History
@@ -22,12 +22,19 @@ export LESSHISTSIZE=0
 
 # my fucking keys
 bindkey '\e[H'   beginning-of-line  # POS1
-bindkey '\e[4~'  end-of-line        # ENDE
+bindkey '\e[1~' beginning-of-line   # POS1 tmux
 bindkey '\e[F'   end-of-line        # ENDE
+bindkey '\e[4~' end-of-line         # ENDE: tmux
 bindkey '\e[3~'  delete-char        # ENTF
+
+# STRG+PFEILTASTEN
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^H' backward-kill-word
 
 # completion
 zstyle :compinstall filename '/home/kirby/.zshrc'
+zstyle ':completion:*' menu no
 autoload -Uz compinit && compinit
 
 # doas completion
@@ -37,11 +44,15 @@ compdef doas=sudo
 export KITTY_ENABLE_WAYLAND=1
 export MOZ_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
-export XDG_RUNTIME_DIR="/var/run/user/$(id -u)"
+export XDG_RUNTIME_DIR="/var/run/xdg/kirby"
 export SDL_VIDEODRIVER=wayland
 export GDK_BACKEND=wayland
 
 [ -d "$XDG_RUNTIME_DIR" ] || mkdir -m 700 -p "$XDG_RUNTIME_DIR"
+
+# golang
+export GOPATH="${HOME}/.go"
+export GOBIN="$GOPATH/bin"
 
 # cargo
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
@@ -53,17 +64,15 @@ PROMPT='┌─[%n@%m]-[%~]
 # $PATH
 typeset -U path
 path=(
-  "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
+  "~/.local/bin"
+  "~/.go/bin"
+  "~/.cargo/bin"
   $path
 )
 export PATH
 
 # Encoding
 export LC_ALL=de_DE.UTF-8
-
-# term
-export TERM="xterm-256color"
 
 #
 # Default Applications
@@ -82,7 +91,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 alias sudo="doas"
 
 # SSH
-#alias ssh="TERM=tmux-256color ssh"
+alias ssh="TERM=xterm-256color ssh"
 # ssh-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock" # ssh-agent
 
@@ -125,6 +134,12 @@ if [ "$(uname)" = "FreeBSD" ]; then
 elif [ "$(uname)" = "Linux" ]; then
     alias lsports="doas ss -lntu"
 fi
+
+# syslogs
+alias syslogs="doas cat /var/log/all.log"
+
+# pflog
+alias pflogs="doas tcpdump -n -e -ttt -r /var/log/pflog"
     
 # process status
 alias psa="ps auxf"
@@ -140,6 +155,7 @@ if [ "$(uname)" = "FreeBSD" ]; then
     alias pkgin="doas pkg install"
     alias pkgrm="doas pkg autoremove && doas pkg remove"
     alias pkgup="doas pkg update && doas pkg upgrade"
+    alias pkgls="pkg query -e '%a = 0' %o"
 
 elif [ "$(uname)" = "Linux" ]; then
     alias pkgs="doas apt search"
