@@ -1,0 +1,21 @@
+[init]
+	defaultBranch = main
+
+[user]
+	email = kirby.dpx@proton.me
+	name = kirby
+	signingkey = ~/.ssh/id_ed25519.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+	verbose = true
+[tag]
+	gpgsign = true
+[core]
+	editor = emacs
+	pager = delta
+[diff]
+	algorithm = histogram
+[rerere]
+	enabled = true

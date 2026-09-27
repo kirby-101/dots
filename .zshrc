@@ -9,6 +9,7 @@ bindkey -e
 HISTFILE=~/.cache/zsh-history
 HISTSIZE=50000
 SAVEHIST=50000
+setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
@@ -87,6 +88,9 @@ export VISUAL="emacs"
 export BROWSER="firefox"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+eval $(fzf --zsh)
+alias history="fzf"
+
 # lunix sudo
 alias sudo="doas"
 
@@ -104,6 +108,7 @@ eval "$(zoxide init zsh)"
 # ls: eza
 alias ls='eza -rhl'
 alias la='eza -rhla'
+alias lstree="eza -rhla --tree"
 
 # rsync
 alias rsync="rsync -v --stats --progress"
@@ -117,10 +122,7 @@ alias rm='rm -iv'
 alias find='fd'
 
 # grep
-alias grep='rga --smart-case'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias grep='rga --smart-case --color=auto'
 
 # disk space
 alias du='du -hc'
