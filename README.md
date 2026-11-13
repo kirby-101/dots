@@ -24,6 +24,12 @@
 ## kern
 * `sysctl hardening.harden_rtld`
 
+## bastille: jail management
+* `bastille create JAILNAME 15-stable 10.0.0.X bastille0` => create thin jail
+* `bastille edit dpxlabd` => jail.conf
+* `bastille update -a 15-stable` => update thinjails
+* ` bastille pkg ALL update` => update pkg repo index
+* `bastille pkg ALL upgrade -y` => update packages
 
 ## vm-bhyve
 * `vm create `

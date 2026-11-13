@@ -13,7 +13,7 @@
 [tag]
 	gpgsign = true
 [core]
-	editor = emacs
+	editor = nano
 	pager = delta
 [diff]
 	algorithm = histogram

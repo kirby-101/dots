@@ -1,4 +1,5 @@
 # ~/.zshrc kirby@bsdlab
+# requirements: ohmyzsh ohmyzsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-you-should-use nano bat fzf zoxide eza rsync wget fd ripgrep-all tmux
 
 # ZSH Options
 setopt autocd extendedglob nomatch notify
@@ -28,6 +29,9 @@ bindkey '\e[F'   end-of-line        # ENDE
 bindkey '\e[4~' end-of-line         # ENDE: tmux
 bindkey '\e[3~'  delete-char        # ENTF
 
+# dd
+bindkey '^@' expand-or-complete
+
 # STRG+PFEILTASTEN
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
@@ -40,6 +44,9 @@ autoload -Uz compinit && compinit
 
 # doas completion
 compdef doas=sudo
+
+# gcloud completion
+source /usr/local/google-cloud-sdk/completion.zsh.inc
 
 # Wayland
 export KITTY_ENABLE_WAYLAND=1
@@ -88,8 +95,13 @@ export VISUAL="emacs"
 export BROWSER="firefox"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-eval $(fzf --zsh)
-alias history="fzf"
+alias gpartls="gpart show -l"
+
+source <(fzf --zsh)
+alias history='fc -rl 1 | fzf --no-sort'
+
+#eval $(fzf --zsh)
+#alias history="fzf"
 
 # lunix sudo
 alias sudo="doas"

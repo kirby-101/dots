@@ -1,0 +1,1 @@
+/home/kirby/.local/bin/ssh-host-menu.zsh
