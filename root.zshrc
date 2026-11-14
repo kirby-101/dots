@@ -140,15 +140,15 @@ alias pscpu='ps auxf | sort -nr -k 3'
 #
 if [ "$(uname)" = "FreeBSD" ]; then
     alias pkgs="pkg search -o -Q repository"
-    alias pkgin="doas pkg install"
-    alias pkgrm="doas pkg autoremove && doas pkg remove"
-    alias pkgup="doas pkg update && doas pkg upgrade"
+    alias pkgin="pkg install"
+    alias pkgrm="pkg autoremove && doas pkg remove"
+    alias pkgup="pkg update && doas pkg upgrade"
     alias pkgls="pkg query -e '%a = 0' %o"
 
 elif [ "$(uname)" = "Linux" ]; then
-    alias pkgs="doas apt search"
-    alias pkgin="doas apt install"
-    alias pkgrm="doas apt remove"
+    alias pkgs="apt search"
+    alias pkgin="apt install"
+    alias pkgrm="apt remove"
 fi
 
 #
