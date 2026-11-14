@@ -148,7 +148,7 @@ if [ "$(uname)" = "FreeBSD" ]; then
 elif [ "$(uname)" = "Linux" ]; then
     alias pkgs="apt search"
     alias pkgin="apt install"
-    alias pkgrm="apt remove"
+    alias pkgrm="apt autoremove && apt remove"
 fi
 
 #
