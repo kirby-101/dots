@@ -1,0 +1,62 @@
+* {
+    font-family: FiraCode;
+    font-size: 15px;
+}
+
+
+window {
+    margin: 0px;
+    background-color: #000000;
+}
+
+#input {
+    margin: 2px;
+    border: 1px soldi #444444;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#inner-box {
+    margin: 2px;
+    border: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+#outer-box {
+    //margin: 5px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 2px;
+    border: none;
+    color: #FFFFFF;
+}
+
+#entry {
+    border: 1px solid #444444;
+}
+
+#entry.activatable #text {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#entry > * {
+    color: #f8f8f2;
+}
+
+#entry:selected {
+    background-color: #444444;
+}
+
+#entry:selected #text {
+    font-weight: bold;
+}
+

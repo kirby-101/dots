@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+waypipe ssh lnxlab-app bash -c '"/home/kirby/.var/app/org.torproject.torbrowser-launcher/data/torbrowser/tbb/x86_64/tor-browser/Browser/start-tor-browser" || ([ !  -x "/home/kirby/.var/app/org.torproject.torbrowser-launcher/data/torbrowser/tbb/x86_64/tor-browser/Browser/start-tor-browser" ] && "$(dirname "$*")"/Browser/start-tor-browser)'
+

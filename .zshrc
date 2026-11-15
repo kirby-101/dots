@@ -1,9 +1,25 @@
 # ~/.zshrc kirby@bsdlab
-# requirements: ohmyzsh ohmyzsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-you-should-use nano bat fzf zoxide eza rsync wget fd ripgrep-all tmux
+
+need() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "Fehlt: $1"
+    exit 1
+  }
+}
+
+# deps: ohmyzsh ohmyzsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-you-should-use nano bat fzf zoxide eza rsync wget fd ripgrep-all
+need nano
+need bat
+need fzf
+need zoxide
+need eza
+need fd
+need rga
+need tmux
 
 # ZSH Options
 setopt autocd extendedglob nomatch notify
-unsetopt beep automenu MENU_COMPLETE # hurensohn sachen
+unsetopt beep automenu MENU_COMPLETE NOMATCH # hurensohn sachen
 bindkey -e
 
 # ZSH History

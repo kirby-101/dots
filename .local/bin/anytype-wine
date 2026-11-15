@@ -1,0 +1,2 @@
+#!/bin/sh
+wine ~/.wine/manual-installs/Anytype/Anytype.exe --no-sandbox --disable-gpu-sandbox --in-process-gpu

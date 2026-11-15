@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+waypipe ssh lnxlab-app "bash -c 'dbus-run-session -- /var/opt/kirby/anytype/squashfs-root/anytype --ozone-platform=wayland --no-sandbox --disable-gpu-sandbox --in-process-gpu'"

@@ -1,0 +1,108 @@
+// @BEGIN TOP BAR
+[{
+    "layer": "top",
+    "position": "top",
+    //ouput
+
+    // Modules
+    "modules-left": [
+	"hyprland/workspaces",
+    ],
+    // tray?
+    "modules-center": [
+	"hyprland/window",
+    ],
+    "modules-right": [
+	"battery",
+	"clock",
+    ],
+
+    /*
+    // Modules
+    */
+     
+    "hyprland/workspaces": {
+	"active-only": false,
+	"all-outputs": true,
+	"format": "{id}",
+	"persistent-workspaces": {
+	    "*": 10
+	},
+	
+        "disable-scroll": true,
+     },
+     
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "clock": {
+	"interval": 1,
+	"format": "{:%d.%m.%y %H:%M:%S}", 
+    },
+
+    "battery": {
+	"format": "battery {capacity}%",
+    },
+    
+
+
+      
+    // @END TOP BAR
+},{
+    // @BEGIN BOTTOM BAR
+    
+    "layer": "top",
+    "position": "bottom",
+    "output": ["eDP-1"],
+
+    // Modules
+    "modules-left": [
+	"wlr/taskbar",
+    ],
+    "modules-center": ["tray"],
+    "modules-right": [
+	"memory#mem", "memory#swap",
+	"cpu",
+    ],
+    // 
+
+    /*
+    // Modules
+    */
+
+    "wlr/taskbar": {
+        	"format": "{icon} {name}",
+        	"tooltip": true,
+        	"tooltip-format": "{title}",
+        	"on-click": "activate",
+        	"on-click-middle": "close",
+        "active-first": true,
+    },
+
+    "tray": {
+	"icon-size": 21,
+	"spacing": 10
+    },
+
+    "cpu": {
+	"interval": 1,
+	"format": "cpu {usage}%",
+    },
+
+    // GPU
+    "gpu?":{},
+
+    "memory#mem": {
+	"interval": 1,
+	"format": "mem {percentage}%/{total:0.1}G",
+    },
+    "memory#swap": {
+	"interval": 1,
+	"format": "swap {swapPercentage}%/{swapTotal:0.1f}G",
+    },
+
+    
+
+}]
+// @END BOTTOM BAR
