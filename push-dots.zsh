@@ -2,6 +2,9 @@
 
 mirrorlist=(
 	"/boot/loader.conf"
+	"/usr/local/etc/doas.conf"
+	"/usr/local/etc/secadm.rules"
+	"/usr/local/etc/ly/config.ini"
 	"~/.zshrc"
 	"~/.gitconfig"
 	"~/.config/dunst"
