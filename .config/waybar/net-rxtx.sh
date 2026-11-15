@@ -1,1 +1,2 @@
-/home/kirby/.config/waybar/net-rxtx.sh
+#!/usr/bin/env bash
+echo "test"

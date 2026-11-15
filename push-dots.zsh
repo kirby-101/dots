@@ -21,7 +21,6 @@ mirrorlist=(
 for file in $mirrorlist; do
 	src=${~file}
 	dest=./${src#$HOME/}
-	mkdir -p ${dest:h}
 	cp -rvf $src $dest
 done
 
