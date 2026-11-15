@@ -1,1 +1,5 @@
-/home/kirby/.local/bin/kleopatra
+#!/usr/bin/env bash
+
+cmd="bash -c 'gpg-agent --daemon && dbus-run-session -- flatpak run org.kde.kleopatra'"
+waypipe ssh lnxlab-app ${cmd}
+pkill -SIGINT -f "kleopatra" && echo "cleaned up"

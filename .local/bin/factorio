@@ -1,1 +1,2 @@
-/home/kirby/.local/bin/factorio
+#!/bin/sh
+wine ~/Games/Factorio/Factorio-v2.0.73-windows/bin/x64/factorio.exe 

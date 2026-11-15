@@ -1,1 +1,2 @@
-/home/kirby/.local/bin/discord
+#!/usr/bin/env bash
+waypipe ssh lnxlab "bash -c 'discord --ozone-platform=wayland'"
